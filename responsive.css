@@ -1,0 +1,615 @@
+/* ==========================================================================
+   Responsive Styles - Aegis & Alliance Law Firm
+   Mobile-First Responsive Design
+   ========================================================================== */
+
+/* ==========================================================================
+   Mobile Styles (Base - 320px+)
+   ========================================================================== */
+
+@media (max-width: 767px) {
+    
+    /* Typography Adjustments */
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.6rem; }
+    h4 { font-size: 1.4rem; }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Navigation */
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--dynasty-dark-blue);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: var(--shadow-heavy);
+        padding: 20px 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        margin: 15px 0;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    
+    .consultation-btn {
+        display: none;
+    }
+    
+    .dropdown-content {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 15px;
+    }
+    
+    .dropdown-content a {
+        padding: 10px 0;
+        border-top: 1px solid rgba(255, 215, 0, 0.2);
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 120px 20px 60px;
+        min-height: 90vh;
+    }
+    
+    .firm-name {
+        font-size: 2.8rem;
+    }
+    
+    .tagline {
+        font-size: 1.4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .dynasty-motto {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-primary, .cta-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .stat h3 {
+        font-size: 2rem;
+    }
+    
+    .dynasty-crest {
+        margin-bottom: 20px;
+    }
+    
+    .crest-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hierarchy {
+        gap: 15px;
+    }
+    
+    .hierarchy-level {
+        padding: 15px;
+    }
+    
+    /* Practice Areas */
+    .practice-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .practice-card {
+        padding: 30px 20px;
+    }
+    
+    .practice-list {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .all-practice-areas {
+        padding: 30px 20px;
+    }
+    
+    /* Banking Section */
+    .bank-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .bank-stat {
+        padding: 20px;
+    }
+    
+    .bank-stat h3 {
+        font-size: 2rem;
+    }
+    
+    .banking-leadership {
+        padding: 30px 20px;
+    }
+    
+    .ceo-profile {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .ceo-photo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    .banking-contact {
+        padding: 30px 20px;
+    }
+    
+    .banking-offices {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .bank-office {
+        padding: 20px;
+    }
+    
+    /* Contact Section */
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-form {
+        padding: 30px 20px;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Section Padding */
+    section {
+        padding: 50px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 40px;
+    }
+}
+
+/* ==========================================================================
+   Tablet Styles (768px - 1023px)
+   ========================================================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    
+    /* Navigation */
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .consultation-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Hero Section */
+    .firm-name {
+        font-size: 3.2rem;
+    }
+    
+    .tagline {
+        font-size: 1.8rem;
+    }
+    
+    .hero-buttons {
+        gap: 15px;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+    
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .dynasty-structure {
+        padding: 30px;
+    }
+    
+    /* Practice Areas */
+    .practice-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .practice-card {
+        padding: 35px 25px;
+    }
+    
+    /* Contact Section */
+    .contact-content {
+        grid-template-columns: 1fr 1.5fr;
+        gap: 50px;
+    }
+    
+    .contact-form {
+        padding: 40px 30px;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+    }
+}
+
+/* ==========================================================================
+   Desktop Large Styles (1024px - 1439px)
+   ========================================================================== */
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+    
+    .container {
+        max-width: 1100px;
+    }
+    
+    /* Hero Section */
+    .firm-name {
+        font-size: 3.8rem;
+    }
+    
+    .tagline {
+        font-size: 2.2rem;
+    }
+    
+    /* Practice Areas */
+    .practice-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ==========================================================================
+   Desktop Extra Large Styles (1440px+)
+   ========================================================================== */
+
+@media (min-width: 1440px) {
+    
+    .container {
+        max-width: 1400px;
+    }
+    
+    /* Hero Section */
+    .firm-name {
+        font-size: 4.5rem;
+    }
+    
+    .tagline {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .dynasty-motto {
+        font-size: 1.3rem;
+    }
+    
+    /* Typography */
+    h2 { font-size: 3.2rem; }
+    h3 { font-size: 2.6rem; }
+    
+    p {
+        font-size: 1.2rem;
+    }
+    
+    /* Practice Areas */
+    .practice-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+    
+    .practice-card {
+        padding: 50px 40px;
+    }
+    
+    /* Contact Section */
+    .contact-form {
+        padding: 60px 50px;
+    }
+}
+
+/* ==========================================================================
+   High DPI / Retina Display Adjustments
+   ========================================================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    
+    /* Adjust shadows for sharper appearance */
+    :root {
+        --shadow-light: 0 1px 5px rgba(26, 35, 126, 0.12);
+        --shadow-medium: 0 4px 15px rgba(26, 35, 126, 0.18);
+        --shadow-heavy: 0 10px 30px rgba(26, 35, 126, 0.3);
+    }
+    
+    /* Sharper borders */
+    .practice-card::before,
+    .hierarchy-level {
+        border-width: 2px;
+    }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    .navbar,
+    .hero-buttons,
+    .scroll-indicator,
+    .contact-form,
+    .hamburger {
+        display: none !important;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding: 20px 0;
+    }
+    
+    section {
+        padding: 30px 0;
+        page-break-inside: avoid;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    .practice-card {
+        page-break-inside: avoid;
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+    
+    .footer {
+        border-top: 1px solid #ddd;
+        padding: 20px 0;
+    }
+}
+
+/* ==========================================================================
+   Accessibility & Motion Preferences
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .scroll-arrow {
+        animation: none;
+    }
+    
+    .dynasty-crest {
+        animation: none;
+    }
+}
+
+/* ==========================================================================
+   Dark Mode Support (Future Enhancement)
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+    
+    /* This section can be expanded for future dark mode support */
+    
+    :root {
+        --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.3);
+        --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.4);
+        --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* ==========================================================================
+   Landscape Phone Adjustments
+   ========================================================================== */
+
+@media (max-width: 896px) and (orientation: landscape) and (max-height: 500px) {
+    
+    .hero {
+        min-height: 100vh;
+        padding: 80px 20px 40px;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+    
+    .stat h3 {
+        font-size: 1.8rem;
+    }
+    
+    .firm-name {
+        font-size: 2.2rem;
+    }
+    
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .dynasty-crest {
+        margin-bottom: 15px;
+    }
+    
+    .crest-img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* ==========================================================================
+   Focus States for Accessibility
+   ========================================================================== */
+
+.nav-link:focus,
+.consultation-btn:focus,
+.cta-primary:focus,
+.cta-secondary:focus,
+.card-cta:focus,
+.submit-btn:focus {
+    outline: 2px solid var(--dynasty-gold);
+    outline-offset: 2px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--dynasty-gold);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Loading States
+   ========================================================================== */
+
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--dynasty-gold);
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Error States
+   ========================================================================== */
+
+.error {
+    border-color: var(--error-red) !important;
+    background: rgba(198, 40, 40, 0.1) !important;
+}
+
+.error-message {
+    color: var(--error-red);
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.success-message {
+    color: var(--success-green);
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

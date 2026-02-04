@@ -1,0 +1,1353 @@
+/* ==========================================================================
+   Aegis & Alliance Law Firm - Main Stylesheet
+   Whatley Sovereignty Dynasty Branding
+   ========================================================================== */
+
+:root {
+    /* Dynasty Color Palette */
+    --dynasty-blue: #1a237e;
+    --dynasty-gold: #ffd700;
+    --dynasty-dark-blue: #0d1442;
+    --dynasty-light-blue: #3949ab;
+    --dynasty-silver: #c0c0c0;
+    --dynasty-white: #ffffff;
+    --dynasty-black: #000000;
+    
+    /* Supporting Colors */
+    --success-green: #2e7d32;
+    --warning-orange: #f57c00;
+    --error-red: #c62828;
+    --info-blue: #1976d2;
+    
+    /* Gradients */
+    --dynasty-gradient: linear-gradient(135deg, var(--dynasty-dark-blue) 0%, var(--dynasty-blue) 50%, var(--dynasty-light-blue) 100%);
+    --gold-gradient: linear-gradient(135deg, #ffd700 0%, #ffed4e  50%, #fff176 100%);
+    
+    /* Typography */
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Inter', sans-serif;
+    
+    /* Spacing */
+    --section-padding: 80px 0;
+    --container-padding: 0 20px;
+    --border-radius: 8px;
+    
+    /* Shadows */
+    --shadow-light: 0 2px 10px rgba(26, 35, 126, 0.1);
+    --shadow-medium: 0 8px 30px rgba(26, 35, 126, 0.15);
+    --shadow-heavy: 0 20px 60px rgba(26, 35, 126, 0.25);
+    
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.5s ease;
+    --transition-slow: 0.8s ease;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--dynasty-dark-blue);
+    background-color: var(--dynasty-white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--container-padding);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.8rem; }
+h3 { font-size: 2.2rem; }
+h4 { font-size: 1.8rem; }
+h5 { font-size: 1.5rem; }
+h6 { font-size: 1.3rem; }
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(26, 35, 126, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 15px 0;
+    transition: var(--transition-fast);
+}
+
+.navbar.scrolled {
+    background: var(--dynasty-dark-blue);
+    padding: 10px 0;
+    box-shadow: var(--shadow-medium);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.logo-text h1 {
+    font-size: 1.8rem;
+    color: var(--dynasty-gold);
+    margin-bottom: 0;
+}
+
+.dynasty-text {
+    font-size: 0.8rem;
+    color: var(--dynasty-silver);
+    font-style: italic;
+    margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--dynasty-white);
+    font-weight: 500;
+    padding: 10px 0;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--dynasty-gold);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--dynasty-gold);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--dynasty-dark-blue);
+    min-width: 250px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-medium);
+    border-radius: var(--border-radius);
+    padding: 20px 0;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 25px;
+    color: var(--dynasty-white);
+    transition: var(--transition-fast);
+}
+
+.dropdown-content a:hover {
+    background: var(--dynasty-blue);
+    color: var(--dynasty-gold);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.consultation-btn {
+    background: var(--gold-gradient);
+    color: var(--dynasty-dark-blue);
+    border: none;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-light);
+}
+
+.consultation-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: var(--dynasty-white);
+    transition: var(--transition-fast);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero {
+    min-height: 100vh;
+    background: var(--dynasty-gradient);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--dynasty-white);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/hero-pattern.png') repeat;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 20, 66, 0.3);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+.dynasty-crest {
+    margin-bottom: 30px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.crest-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--dynasty-gold);
+    box-shadow: var(--shadow-heavy);
+}
+
+.hero-title {
+    margin-bottom: 30px;
+}
+
+.firm-name {
+    display: block;
+    font-size: 4rem;
+    color: var(--dynasty-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.tagline {
+    display: block;
+    font-size: 2rem;
+    color: var(--dynasty-white);
+    font-weight: 400;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--dynasty-silver);
+}
+
+.dynasty-motto {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--dynasty-gold);
+    margin-bottom: 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.cta-primary, .cta-secondary {
+    padding: 18px 35px;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.cta-primary {
+    background: var(--gold-gradient);
+    color: var(--dynasty-dark-blue);
+    border: none;
+    box-shadow: var(--shadow-medium);
+}
+
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.cta-secondary {
+    background: transparent;
+    color: var(--dynasty-white);
+    border: 2px solid var(--dynasty-gold);
+}
+
+.cta-secondary:hover {
+    background: var(--dynasty-gold);
+    color: var(--dynasty-dark-blue);
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat h3 {
+    font-size: 2.5rem;
+    color: var(--dynasty-gold);
+    margin-bottom: 5px;
+}
+
+.stat p {
+    color: var(--dynasty-silver);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 30px;
+    border-right: 2px solid var(--dynasty-gold);
+    border-bottom: 2px solid var(--dynasty-gold);
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+}
+
+/* ==========================================================================
+   Section Styles
+   ========================================================================== */
+
+section {
+    padding: var(--section-padding);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    color: var(--dynasty-dark-blue);
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--dynasty-blue);
+    font-style: italic;
+}
+
+/* ==========================================================================
+   About Section
+   ========================================================================== */
+
+.about {
+    background: var(--dynasty-white);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.about-text h3 {
+    color: var(--dynasty-blue);
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.about-text h3:first-child {
+    margin-top: 0;
+}
+
+.about-text p {
+    color: var(--dynasty-dark-blue);
+    text-align: justify;
+}
+
+blockquote {
+    background: var(--dynasty-gradient);
+    color: var(--dynasty-white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin: 30px 0;
+    font-style: italic;
+    border-left: 5px solid var(--dynasty-gold);
+    box-shadow: var(--shadow-light);
+}
+
+.dynasty-principles ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dynasty-principles li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.dynasty-principles li::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    color: var(--dynasty-gold);
+    font-weight: bold;
+}
+
+.dynasty-structure {
+    background: var(--dynasty-dark-blue);
+    color: var(--dynasty-white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+}
+
+.dynasty-structure h3 {
+    color: var(--dynasty-gold);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hierarchy {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hierarchy-level {
+    background: rgba(255, 215, 0, 0.1);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--dynasty-gold);
+}
+
+.hierarchy-level h4 {
+    color: var(--dynasty-gold);
+    margin-bottom: 10px;
+}
+
+.hierarchy-level p {
+    margin: 0;
+    color: var(--dynasty-silver);
+}
+
+/* ==========================================================================
+   Practice Areas Section
+   ========================================================================== */
+
+.practice-areas {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.practice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.practice-card {
+    background: var(--dynasty-white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.practice-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--dynasty-gradient);
+}
+
+.practice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.practice-card.featured {
+    background: var(--dynasty-gradient);
+    color: var(--dynasty-white);
+}
+
+.practice-card.featured::before {
+    background: var(--dynasty-gold);
+}
+
+.card-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--dynasty-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.practice-card.featured .card-icon {
+    background: var(--dynasty-white);
+}
+
+.card-icon i {
+    font-size: 1.8rem;
+    color: var(--dynasty-dark-blue);
+}
+
+.practice-card h3 {
+    color: var(--dynasty-dark-blue);
+    margin-bottom: 15px;
+}
+
+.practice-card.featured h3 {
+    color: var(--dynasty-white);
+}
+
+.practice-card p {
+    margin-bottom: 20px;
+    color: var(--dynasty-dark-blue);
+}
+
+.practice-card.featured p {
+    color: var(--dynasty-silver);
+}
+
+.practice-card ul {
+    margin-bottom: 25px;
+}
+
+.practice-card li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    color: var(--dynasty-dark-blue);
+}
+
+.practice-card.featured li {
+    color: var(--dynasty-white);
+}
+
+.practice-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--dynasty-gold);
+    font-weight: bold;
+}
+
+.card-cta {
+    background: var(--dynasty-blue);
+    color: var(--dynasty-white);
+    border: none;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-weight: 600;
+}
+
+.practice-card.featured .card-cta {
+    background: var(--dynasty-white);
+    color: var(--dynasty-dark-blue);
+}
+
+.card-cta:hover {
+    transform: translateY(-2px);
+}
+
+.all-practice-areas {
+    background: var(--dynasty-white);
+    padding: 50px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.all-practice-areas h3 {
+    text-align: center;
+    color: var(--dynasty-dark-blue);
+    margin-bottom: 40px;
+}
+
+.practice-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.practice-column ul {
+    list-style: none;
+}
+
+.practice-column li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: var(--dynasty-dark-blue);
+}
+
+.practice-column i {
+    color: var(--dynasty-gold);
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   Banking Section
+   ========================================================================== */
+
+.banking {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.banking-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banking-overview {
+    margin-bottom: 60px;
+}
+
+.bank-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.bank-stat {
+    background: var(--dynasty-white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    border-top: 4px solid var(--dynasty-gold);
+}
+
+.bank-stat h3 {
+    font-size: 2.5rem;
+    color: var(--dynasty-blue);
+    margin-bottom: 10px;
+}
+
+.bank-stat p {
+    color: var(--dynasty-dark-blue);
+    font-weight: 600;
+    margin: 0;
+}
+
+.banking-leadership {
+    background: var(--dynasty-white);
+    padding: 50px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    margin-bottom: 50px;
+}
+
+.banking-leadership h3 {
+    color: var(--dynasty-dark-blue);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ceo-profile {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.ceo-image {
+    text-align: center;
+}
+
+.ceo-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid var(--dynasty-gold);
+    object-fit: cover;
+    box-shadow: var(--shadow-medium);
+}
+
+.ceo-info h4 {
+    color: var(--dynasty-dark-blue);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.ceo-title {
+    color: var(--dynasty-gold);
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.ceo-credentials ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.ceo-credentials li {
+    margin-bottom: 8px;
+    color: var(--dynasty-dark-blue);
+}
+
+.ceo-philosophy {
+    background: var(--dynasty-gradient);
+    color: var(--dynasty-white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    font-style: italic;
+    border-left: 4px solid var(--dynasty-gold);
+}
+
+.banking-services {
+    margin-bottom: 50px;
+}
+
+.banking-services h3 {
+    color: var(--dynasty-dark-blue);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--dynasty-white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-fast);
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--dynasty-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+}
+
+.service-icon i {
+    font-size: 2rem;
+    color: var(--dynasty-white);
+}
+
+.service-card h4 {
+    color: var(--dynasty-dark-blue);
+    margin-bottom: 20px;
+}
+
+.service-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.service-card li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    color: var(--dynasty-dark-blue);
+}
+
+.service-card li::before {
+    content: '💰';
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+}
+
+.banking-contact {
+    background: var(--dynasty-dark-blue);
+    color: var(--dynasty-white);
+    padding: 50px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+}
+
+.banking-contact h3 {
+    color: var(--dynasty-gold);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.banking-offices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.bank-office {
+    background: rgba(255, 215, 0, 0.1);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--dynasty-gold);
+}
+
+.bank-office h4 {
+    color: var(--dynasty-gold);
+    margin-bottom: 15px;
+}
+
+.bank-office p {
+    color: var(--dynasty-silver);
+    margin-bottom: 10px;
+}
+
+.bank-office strong {
+    color: var(--dynasty-white);
+}
+
+/* ==========================================================================
+   Dynasty Section
+   ========================================================================== */
+
+.dynasty {
+    background: var(--dynasty-gradient);
+    color: var(--dynasty-white);
+}
+
+.dynasty .section-header h2,
+.dynasty .section-subtitle {
+    color: var(--dynasty-white);
+}
+
+.dynasty .section-subtitle {
+    color: var(--dynasty-gold);
+}
+
+.dynasty-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.dynasty-info h3 {
+    color: var(--dynasty-gold);
+    margin-bottom: 25px;
+}
+
+.dynasty-info p {
+    color: var(--dynasty-silver);
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+.oath-section {
+    margin: 50px 0;
+}
+
+.dynasty-oath {
+    background: rgba(255, 215, 0, 0.1);
+    border-left: 5px solid var(--dynasty-gold);
+    padding: 40px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.role-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.role-card h4 {
+    color: var(--dynasty-gold);
+    margin-bottom: 15px;
+}
+
+.role-card p {
+    color: var(--dynasty-silver);
+    margin: 0;
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
+
+.contact {
+    background: var(--dynasty-white);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--dynasty-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    color: var(--dynasty-white);
+    font-size: 1.5rem;
+}
+
+.contact-details h3 {
+    color: var(--dynasty-dark-blue);
+    margin-bottom: 5px;
+}
+
+.contact-details p {
+    color: var(--dynasty-blue);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.contact-details span {
+    color: var(--dynasty-silver);
+    font-size: 0.9rem;
+}
+
+.contact-form {
+    background: var(--dynasty-dark-blue);
+    padding: 50px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+}
+
+.contact-form h3 {
+    color: var(--dynasty-gold);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--dynasty-white);
+    font-size: 1rem;
+    transition: var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--dynasty-gold);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--dynasty-silver);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    color: var(--dynasty-silver);
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.submit-btn {
+    width: 100%;
+    background: var(--gold-gradient);
+    color: var(--dynasty-dark-blue);
+    border: none;
+    padding: 18px;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.privacy-notice {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--dynasty-silver);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.privacy-notice i {
+    color: var(--dynasty-gold);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+    background: var(--dynasty-dark-blue);
+    color: var(--dynasty-white);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.footer-logo h3 {
+    color: var(--dynasty-gold);
+    margin: 0;
+}
+
+.footer-motto {
+    color: var(--dynasty-silver);
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    color: var(--dynasty-gold);
+    margin-bottom: 20px;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: var(--dynasty-silver);
+    transition: var(--transition-fast);
+}
+
+.footer-section ul li a:hover {
+    color: var(--dynasty-gold);
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: var(--dynasty-silver);
+}
+
+.contact-info i {
+    color: var(--dynasty-gold);
+    width: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: var(--dynasty-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.social-links a:hover {
+    background: var(--dynasty-gold);
+    color: var(--dynasty-dark-blue);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 215, 0, 0.3);
+    padding-top: 30px;
+    text-align: center;
+}
+
+.legal-text p {
+    color: var(--dynasty-silver);
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.footer-links a {
+    color: var(--dynasty-silver);
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--dynasty-gold);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.hidden { display: none; }
+.visible { display: block; }
+
+.fade-in {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.dynasty-text-gold { color: var(--dynasty-gold); }
+.dynasty-text-blue { color: var(--dynasty-blue); }
+.dynasty-text-white { color: var(--dynasty-white); }
+
+.bg-dynasty-blue { background: var(--dynasty-blue); }
+.bg-dynasty-gold { background: var(--dynasty-gold); }
+.bg-dynasty-gradient { background: var(--dynasty-gradient); }
